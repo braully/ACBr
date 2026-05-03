@@ -88,15 +88,15 @@ jobs:
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
       # 6. Criar Release
-      - name: Criar Release no GitHub
-        if: steps.sync.outputs.changes_detected == 'true' || github.event_name == 'workflow_dispatch'
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: build-${{ env.ZIP_NAME }}
-          name: Build Diário ${{ env.ZIP_NAME }}
-          body: |
-            Build automático sincronizado com o upstream.
-            Data: ${{ env.ZIP_NAME }}
-          files: ${{ env.ZIP_NAME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Criar Release no GitHub
+      #  if: steps.sync.outputs.changes_detected == 'true' || github.event_name == 'workflow_dispatch'
+      #  uses: softprops/action-gh-release@v1
+      #  with:
+      #    tag_name: build-${{ env.ZIP_NAME }}
+      #    name: Build Diário ${{ env.ZIP_NAME }}
+      #    body: |
+      #      Build automático sincronizado com o upstream.
+      #      Data: ${{ env.ZIP_NAME }}
+      #    files: ${{ env.ZIP_NAME }}
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
